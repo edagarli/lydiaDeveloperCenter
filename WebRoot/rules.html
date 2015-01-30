@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>LydiaBox Web App 审核规则</title>
+  <link rel="stylesheet" href="semantic/css/semantic.min.css"/>
+	<link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+<div class="ui menu inverted">
+  <a class="item" href="index.html">首页</a>
+  <a class="item" href="faq.html">FAQ</a>
+  <a class="item active" href="rules.html">审核规则</a>
+  <a class="item" href="resources.html">开发资源</a>
+</div>
+
+<div class="ui grid">
+  <div class="four wide column"></div>
+  <div class="eight wide column">
+    <div class="ui segment">
+      <h1>审核规则</h1>
+	    <h2>1.前言</h2>
+	    <p>如你所见，web正在快速发展着。相信你与我一样，都希望web变得更好，希望HTML5能早日普及。</p>
+	    <p>但是HTML5的普及，需要优秀的应用起到带头作用。而我们做的，就是想办法把你的web app，交到iOS和安卓的用户手中（其他手机平台似乎都支持直接用HTML5开发原生应用）加大你的优秀应用被发现的可能性。</p>
+	    <p>毫不夸张地讲，你的应用，代表着用户眼中的HTML5。</p>
+	    <p>我们希望你提交的应用，能媲美那些原生应用，有着出色的设计，良好的体验。</p>
+	    <p>HTML5技术完全成熟了吗？当然没有，但是它的很多特性已经稳定下来，可以被用于生产中。创造出不逊于原生应用的体验，技术上是完全可行的。</p>
+	    <p>也许这对你来说投入的时间和才华更多了，但请相信我，这些成本绝对是值得的。</p>
+	    <p>简单来说，<b>我们只通过体验不逊于原生应用的web app</b>。</p>
+
+      <h2>2.1 请提交web app，而不是web site</h2>
+      <p>web app不是web site，前者是一个正经的app，而后者可能只是一些超级链接。</p>
+      <p>除此之外，一个app应该有典型的app交互界面，如今移动互联网的用户已经习惯了这些界面。正确并熟练地使用这些界面控件，能给用户有效的引导。</p>
+      <p>一个app还应该有良好的设计。</p>
+      <p>如果你提交的应用充斥着蓝色的文字链接，或提供了类似的体验，将会被拒绝。</p>
+
+      <h2>2.2 请确保完美支持移动设备</h2>
+      <p>也许你使用了响应式设计来支持移动设备的访问，但是你必须明白。
+      你的web app将被呈现给手机用户，他们可能并不会在PC上访问你的web app。</p>
+	    <p>对于移动设备支持有问题的应用，将会被拒绝。</p>
+
+      <h2>2.3 请不要投放过多恼人的广告</h2>
+      <p>这世上有很多赚钱的方法，广告只是其中一种。</p>
+      <p>我们不否认广告的价值，注意这里有一个限定词“过多恼人”。好的广告能引人注目，好的广告不是广告而是恰如其分的沟通。</p>
+      <p>比如：
+        <li>个性化定制的广告。你的用户是通过浏览器访问你的Web App的，这意味着你能拿到他们的cookie。</li>
+        <li>良好呈现的广告。</li>
+      </p>
+	    <p>如果你的应用因为广告而影响到了应用的正常使用，或者误导了用户，将会被拒绝。</p>
+
+      <h2>2.4 请使用HTML5缓存API</h2>
+      <p>HTML5的缓存API让离线应用成为了现实。使用缓存API还能有效减少用户的流量消耗。</p>
+	    <p>如果你的应用没有使用HTML5 application cache API，将会被拒绝。</p>
+
+      <h2>2.5 请使用HTML5 Online Events</h2>
+	    <p>请正确使用HTML5 Online Events，在用户的网络出现问题的时候，给予友好的提示。</p>
+	    <p>如果你的web app应该在离线状态下部分工作正常（非纯离线应用），却没有使用HTML5 Online Events API，将会被拒绝。</p>
+
+	    <h2>2.6 请不要使页面刷新</h2>
+	    <p>刷新一次页面对于web app来说开销是很大的，除此之外用户体验也很糟糕。请把你的网站做成单页应用，并只使用ajax与服务器后台通信。</p>
+	    <p>除非必须情况（比如用户的设备从离线状态变为在线），请不要刷新页面。</p>
+	    <p>如果你的产品特性决定了你不得不刷新页面，请友好刷新。请参考豆瓣的web app。当然，如果你决定这样做了，这很可能成为你的应用被拒绝的理由。</p>
+
+	    <h2>2.7 请不要依赖浏览器中的“返回”按钮</h2>
+	    <p>LydiaBox提供“返回”按钮，但是你应当在你的应用中自行实现导航功能，而不是依赖浏览器的“返回”按钮。</p>
+	    <p>并不是所有的设备都提供back button。依赖“返回”按钮的web app，将会被拒绝。</p>
+
+	    <h2>2.8 请不要打开新的窗口</h2>
+	    <p>请不要误会，我们也明白，web是开放的也本应是开放的。</p>
+	    <p>但是胡乱跳转到其他网页中会使用户迷失方向，感到困惑，这不是你我所希望的。</p>
+	    <p>我们当然允许你在一些情况下跳到其他网页中，比如说调用OAuth接口，或者其他第三方服务。这些服务中一般都带有回调，用过户能轻易地回到你的web app。</p>
+	    <p>如果你的web app胡乱跳到其他web app网页中，并且需要用户烦躁并且疯狂地按“返回”按钮才能回到你的web app中，你的web app将会被拒绝。</p>
+
+	    <h2>2.9 请不要在web app中推销你的native app</h2>
+	    <p>你也许会认为我们小心眼，孩子气，斤斤计较，但是用户体验对我们来说不是一个口号，而是我们真正在乎的。</p>
+	    <p>不论其内容是什么，一个关闭按钮小得可怜的弹窗不会获得用户的任何好感。</p>
+	    <p>如果你的web app中有推销native app的弹窗或者badge，将会被拒绝。</p>
+	    <p>如果你的web app中存在某个功能界面，点击后却提示只能在native app中使用，将会被拒绝。</p>
+
+	    <h2>3.1 请确保你的manifest.webapp始终可访问</h2>
+	    <p>manifest.webapp保存了应用的元信息，这对你的应用来说至关重要。LydiaBox现在或将来的许多工作都需要依赖这个JSON文件来完成。</p>
+	    <p>如果你的manifest.webapp不可访问，将会被拒绝。</p>
+
+      <h2>4.1 请确保服务可访问</h2>
+	    <p>无法访问的web app将被拒绝，或者被下架。</p>
+
+	    <h2>4.2 请确保服务的响应速度</h2>
+	    <p>如果web app的加载速度过慢，将会被拒绝。</p>
+	    <p>你可以延时加载，并显示一个launch screen。</p>
+	    <p>你应该使用HTML5的离线缓存API，这样当没有文件更新时用户就不会发起多余的请求。</p>
+	    <p>你应该把你的web app做成单页应用，并通过ajax与服务器交互。这样做不仅可以无刷新更新页面，也可以减少用户的请求流量，提高加载速度。</p>
+
+	    <h2>4.3 请提交功能完善的web app</h2>
+	    <p>如果你的web app拥有一个或多个bug，或者因为功能的完成度而被我们认为会对用户造成困扰，将会被拒绝，或者被下架。</p>
+
+	    <h2>5 请不要提交功能与LydiaBox重复的应用</h2>
+	    <p>如果你也想推动HTML5的发展，做与LydiaBox一样的事情，我们欢迎你的加入，我们渴望像你这样有想法的人才。</p>
+	    <p>但是我们没有任何理由让用户在LydiaBox中再打开一个LydiaBox。</p>
+	    <p>如果你的应用包含与LydiaBox相似的功能，将会被拒绝。</p>
+
+      <h2>6 请符合相关的法律法规</h2>
+      <p>你懂的。</p>
+    </div>
+  </div>
+  <div class="four wide column"></div>
+</div>
+
+<footer>
+	&copy; Jrooy. All Rights Reserved.
+</footer>
+
+<script type="text/javascript" src="http://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="semantic/javascript/semantic.js"></script>
+</body>
+</html>

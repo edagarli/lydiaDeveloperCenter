@@ -1,0 +1,142 @@
+<div class="ui grid">
+  <div class="three wide column" style="height: 650px;">
+    <div class="ui menu vertical" style="height: 100%;">
+      <a class="item" href="#manage">
+        <i class="list icon"></i> 管理应用
+      </a>
+      <a class="item" href="#developer">
+        <i class="user icon"></i> 开发者信息
+      </a>
+      <a class="item active" href="#add">
+        <i class="add icon"></i> 添加应用
+      </a>
+      <a class="item" href="#claim">
+	      <i class="exchange icon"></i> 认领应用
+      </a>
+      <a class="item" ng-click="logout()">
+        <i class="off icon"></i> 注销
+      </a>
+	    <div class="item">
+		    支持:<br>
+		    issue.dev@lydiabox.com
+	    </div>
+	    <div class="item">
+		    应用推荐申请:<br>
+		    recommend@lydiabox.com
+	    </div>
+    </div>
+  </div>
+
+  <div class="eleven wide column">
+    <div class="ui inverted {{loaderStatus}} dimmer">
+      <div class="ui loader"></div>
+    </div>
+
+    <div class="ui message {{notificationStyle}}" ng-show="!notificationHidden">
+      <i class="close icon" ng-click="closeNotification()"></i>
+      {{notificationMessage}}
+    </div>
+
+    <div class="ui five column grid">
+      <div class="column"></div>
+      <div class="ui steps">
+        <div class="ui step {{steps[0].status}}">提交应用信息</div>
+        <div class="ui step {{steps[1].status}}">提交manifest.webapp</div>
+        <div class="ui step {{steps[2].status}}">提交成功</div>
+      </div>
+      <div class="column"></div>
+    </div>
+
+    <div class="ui divider"></div>
+
+    <div ng-show="steps[0].show">
+      <form class="ui segment form" id="addForm" name="addForm" onsubmit="return false;">
+        <div class="field">
+          <label>app名称</label>
+          <input type="text" ng-model="appName" name="appName" placeholder="应用名称" required>
+        </div>
+        <div class="field ui input">
+          <label>app URL</label>
+          <input type="url" ng-model="appURL" name="appURL" placeholder="应用URL e.g. http://example.com" required>
+        </div>
+        <div class="field">
+          <label>app图标</label>
+          <p style="color: #e74c3c; font-size: 0.8em;">请上传128x128分辨率的png格式的正方形图片</p>
+          <input type="file" ng-file-select="onFileSelect($files)"/>
+          <div class="ui active progress blue one" ng-show="total">
+            <div class="bar" id="uploadProgress" style="width: {{100 * loaded / total}}%;"></div>
+          </div>
+          <img ng-src="{{icon_src}}" ng-show="icon_src" />
+        </div>
+        <div class="field">
+          <label>app分类</label>
+          <div class="ui selection dropdown">
+            <input type="hidden" ng-model="appCategory" name="appCategory" required>
+            <div class="default text">选取分类</div>
+            <i class="dropdown icon"></i>
+            <div class="menu">
+              <div class="item" data-value="1">游戏</div>
+              <div class="item" data-value="2">工具</div>
+              <div class="item" data-value="3">社交</div>
+              <div class="item" data-value="4">摄影</div>
+              <div class="item" data-value="5">生活</div>
+              <div class="item" data-value="6">阅读</div>
+              <div class="item" data-value="7">学习</div>
+              <div class="item" data-value="8">影音</div>
+              <div class="item" data-value="9">资讯</div>
+              <div class="item" data-value="10">旅行</div>
+              <div class="item" data-value="11">娱乐</div>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <label>app描述</label>
+          <textarea ng-model="appDescription" placeholder="应用描述" name="appDescription" required />
+        </div>
+	      <div class="field">
+		      <label>app关键字(用半角逗号隔开)</label>
+		      <input type="text" ng-model="appKeywords" name="appKeywords" placeholder="foo,bar,baz" required />
+	      </div>
+        <div class="ui button submit blue" ng-click="steps[0].next()">下一步</div>
+      </form>
+    </div>
+
+
+    <div ng-show="steps[1].show">
+      <div class="ui segment">
+        <p>请在{{appURL}}的对应目录下创建名为manifest.webapp的文件，编码utf-8，内容如下：</p>
+        <pre>
+	        {
+	          "name": "{{appName}}",
+	          "description": "{{appDescription}}",
+	          "icons": {
+	            "128": "{{icon_src}}",
+	          },
+	          "developer": {
+	            "name": "{{developer.name}}",
+	            "url": "{{developer.website}}"
+	          }
+	        }
+        </pre>
+        <p>如果想知道更多关于W3C Web App manifest的标准，请参考：</p>
+        <p>
+	        <li>
+            <a href="http://w3c.github.io/manifest/" target="_blank">Manifest for web application</a>
+          </li>
+        </p>
+      </div>
+      <div class="ui button blue" ng-click="steps[1].next()">已上传，下一步</div>
+    </div>
+
+
+    <div ng-show="steps[2].show">
+      <div class="ui segment">
+        <p>提交成功 <i class="smile icon"></i></p>
+        <p>我们将尽快审核并用邮件通知您</p>
+      </div>
+      <div class="ui button blue" ng-click="complete()">完成</div>
+    </div>
+  </div>
+</div>
+
+

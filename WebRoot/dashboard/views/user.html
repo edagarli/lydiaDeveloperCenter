@@ -1,0 +1,67 @@
+<div class="ui grid">
+	<div class="three wide column" style="height: 650px;">
+		<div class="ui menu vertical" style="height: 100%;">
+			<a class="item" href="#manage">
+				<i class="list icon"></i> 管理应用
+			</a>
+			<a class="item active" href="#developer">
+				<i class="user icon"></i> 开发者信息
+			</a>
+			<a class="item" href="#add">
+				<i class="add icon"></i> 添加应用
+			</a>
+			<a class="item" href="#claim">
+				<i class="exchange icon"></i> 认领应用
+			</a>
+			<a class="item" ng-click="logout()">
+				<i class="off icon"></i> 注销
+			</a>
+			<div class="item">
+				支持:<br>
+				issue.dev@lydiabox.com
+			</div>
+			<div class="item">
+				应用推荐申请:<br>
+				recommend@lydiabox.com
+			</div>
+		</div>
+	</div>
+
+	<div class="eleven wide column">
+		<div class="ui message {{notificationStyle}}" ng-show="!notificationHidden">
+			<i class="close icon" ng-click="closeNotification()"></i>
+			{{notificationMessage}}
+		</div>
+
+		<form class="ui segment form vertical" id="userEditForm" name="userEditForm" onsubmit="return false;">
+			<div class="ui inverted {{loaderStatus}} dimmer">
+				<div class="ui loader"></div>
+			</div>
+
+			<div class="field">
+				<label>开发者／开发团队 名称：</label>
+				<div class="ui left labeled icon input">
+					<input name="name" ng-model="user.name" type="text" placeholder="some name" required >
+					<i class="user icon"></i>
+				</div>
+			</div>
+
+			<div class="field">
+				<label>密码：</label>
+				<div class="ui left labeled icon input">
+					<input name="password" ng-model="user.password" type="password" placeholder="留空则不修改" />
+					<i class="lock icon"></i>
+				</div>
+			</div>
+			<div class="field">
+				<label>开发者／开发团队 官方网站：</label>
+				<div class="ui left labeled icon input">
+					<input name="website" ng-model="user.website" type="url" placeholder="http://example.com" required />
+					<i class="url icon"></i>
+				</div>
+			</div>
+			<div class="ui button submit blue" ng-click="update()">保存</div>
+		</form>
+	</div>
+</div>
+

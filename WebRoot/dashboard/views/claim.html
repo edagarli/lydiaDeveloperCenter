@@ -1,0 +1,57 @@
+<div class="ui grid">
+	<div class="three wide column" style="height: 650px;">
+		<div class="ui menu vertical" style="height: 100%;">
+			<a class="item" href="#manage">
+				<i class="list icon"></i> 管理应用
+			</a>
+			<a class="item" href="#developer">
+				<i class="user icon"></i> 开发者信息
+			</a>
+			<a class="item" href="#add">
+				<i class="add icon"></i> 添加应用
+			</a>
+			<a class="item active" href="#claim">
+				<i class="exchange icon"></i> 认领应用
+			</a>
+			<a class="item" ng-click="logout()">
+				<i class="off icon"></i> 注销
+			</a>
+			<div class="item">
+				支持:<br>
+				issue.dev@lydiabox.com
+			</div>
+			<div class="item">
+				应用推荐申请:<br>
+				recommend@lydiabox.com
+			</div>
+		</div>
+	</div>
+
+	<div class="eleven wide column">
+		<div class="ui message {{notificationStyle}}" ng-show="!notificationHidden">
+			<i class="close icon" ng-click="closeNotification()"></i>
+			{{notificationMessage}}
+		</div>
+
+		<form class="ui form segment" id="claimForm" name="claimForm" onsubmit="return false;">
+			<div class="field">
+				<p>认领应用功能是为如下开发者准备的：</p>
+				<li>未在LydiaBox开发者中心提交，却发现自己的web app已经上线</li>
+			</div>
+			<div class="field">
+				<label>app名字</label>
+				<input type="text" ng-model="appName" required/>
+				<input type="hidden" ng-model="appId" required/>
+			</div>
+
+			<div class="field">
+				<label>manifest地址</label>
+				<input type="url" required/>
+			</div>
+
+			<div class="field">
+				<button class="ui button blue submit">申请认领</button>
+			</div>
+		</form>
+	</div>
+</div>

@@ -1,0 +1,40 @@
+a {
+    text-decoration: none;
+    color: #1abc9c;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #16a085;
+}
+
+/* one of font-family best practice */
+body,input,textarea,select {font:normal 12px/1.667 'Helvetica Neue',Tahoma,Arial,'Microsoft YaHei',\5fae\8f6f\96c5\9ed1;*font-family:'Microsoft YaHei',Tahoma,Arial;color:#333}
+.noClearType body,.noClearType input,.noClearType textarea,.noClearType select {font-family:Tahoma,Arial}
+.FontYahei body,.FontYahei input,.FontYahei textarea,.FontYahei select {font-family:'Helvetica Neue',Tahoma,Arial,'Microsoft YaHei',\5fae\8f6f\96c5\9ed1,sans-serif;*font-family:'Microsoft YaHei',Tahoma,Arial}
+.FontSimsun body,.FontSimsun input,.FontSimsun textarea,.FontSimsun select {font-family:'Helvetica Neue',Tahoma,Arial,SimSun,\5b8b\4f53;*font-family:SimSun}
+.FontSys body,.FontSys input,.FontSys textarea,.FontSys select {font-family:'Helvetica Neue',Tahoma,Arial,sans-serif;*font-family:'Helvetica Neue',Tahoma,Arial}
+@media screen\0 {
+    .FontSys body,.FontSys input,.FontSys textarea,.FontSys select {font-family:'Helvetica Neue',Tahoma,Arial}
+}
+
+
+#loginForm .header {
+    text-align: center;
+}
+
+#loginForm {
+    margin-top: 60%;
+}
+
+#regForm {
+    margin-top: 10%;
+}
+
+#regFormContainer {
+    margin-top: 6%;
+}
+
+body {
+    background-color: #ecf0f1;
+}

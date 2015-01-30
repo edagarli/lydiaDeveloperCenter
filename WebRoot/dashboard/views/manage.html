@@ -1,0 +1,108 @@
+<div class="ui grid">
+	<div class="three wide column" style="height: 650px;">
+		<div class="ui menu vertical" style="height: 100%;">
+			<a class="item active" href="#manage">
+				<i class="list icon"></i> 管理应用
+			</a>
+			<a class="item" href="#developer">
+				<i class="user icon"></i> 开发者信息
+			</a>
+			<a class="item" href="#add">
+				<i class="add icon"></i> 添加应用
+			</a>
+			<a class="item" href="#claim">
+				<i class="exchange icon"></i> 认领应用
+			</a>
+			<a class="item" ng-click="logout()">
+				<i class="off icon"></i> 注销
+			</a>
+			<div class="item">
+				支持:<br>
+				issue.dev@lydiabox.com
+			</div>
+			<div class="item">
+				应用推荐申请:<br>
+				recommend@lydiabox.com
+			</div>
+		</div>
+	</div>
+
+	<div class="eleven wide column">
+		<div class="ui message {{notificationStyle}}" ng-show="!notificationHidden">
+			<i class="close icon" ng-click="closeNotification()"></i>
+			{{notificationMessage}}
+		</div>
+
+		<a class="ui button large green" href="#add">添加Web App</a>
+		<div class="ui inverted {{loaderStatus}} dimmer">
+			<div class="ui loader"></div>
+		</div>
+		<table class="ui table segment">
+			<thead>
+			<tr>
+				<th>应用名称</th>
+				<th>应用地址</th>
+				<th>状态</th>
+				<th>添加次数</th>
+				<th>操作</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr ng-repeat="app in apps">
+				<td>{{app.name}}</td>
+				<td><a href="{{app.url}}" target="_blank">{{app.url}}</a></td>
+				<td class="{{app.class}}">{{app.status}}</td>
+				<td>{{app.openTimes}}</td>
+				<td>
+					<div class="buttons" ng-show="app.isApproved">
+						<a class="ui green button" ng-click="showUpdateModal(app.id)">更新</a>
+					</div>
+					<div ng-show="app.isRejected">
+						<a class="ui blue button" ng-click="resubmit(app.id)">再次申请</a>
+					</div>
+					<div ng-show="app.isReviewing">
+						请耐心等待
+					</div>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="ui modal">
+		<i class="icon close"></i>
+		<div class="header">
+			更新web app
+		</div>
+		<div class="content">
+			<div class="left">
+				<label>更新图标</label>
+				<p style="color: #e74c3c; font-size: 0.8em;">请上传128x128分辨率的png格式的正方形图片</p>
+				<input type="file" ng-file-select="onFileSelect($files)"/>
+				<div class="ui active progress blue one" ng-show="total">
+					<div class="bar" id="uploadProgress" style="width: {{100 * loaded / total}}%;"></div>
+				</div>
+				<img ng-src="{{icon_src}}" ng-show="icon_src" />
+			</div>
+			<div class="right">
+				<span class="ui label blue">
+					app描述信息，作者信息，直接在manifest文件里修改即可。
+				</span>
+				<br>
+				<br>
+				<div class="ui input">
+					<label>Manifest地址，留空则不修改</label>
+					<input type="url" ng-model="manifestURL" placeholder="http://..."/>
+				</div>
+				<div class="ui input">
+					<label>关键字，留空则不修改</label>
+					<input type="text" ng-model="keywords" placeholder="foo,bar,baz"/>
+				</div>
+			</div>
+		</div>
+		<div class="actions">
+			<div class="ui button green" ng-click="update()">提交</div>
+		</div>
+	</div>
+</div>
+

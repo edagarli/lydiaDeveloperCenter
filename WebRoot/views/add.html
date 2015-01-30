@@ -1,0 +1,65 @@
+<div class="ui five column grid">
+    <div class="column"></div>
+    <div class="ui steps">
+        <div class="ui step {{steps[0].status}}">提交应用信息</div>
+        <div class="ui step {{steps[1].status}}">验证域名拥有权</div>
+        <div class="ui step {{steps[2].status}}">提交成功</div>
+    </div>
+    <div class="column"></div>
+</div>
+
+<div ng-show="steps[0].show">
+    <div class="ui segment form">
+        <div class="field">
+            <input type="text" ng-model="appName" placeholder="应用名称" required>
+        </div>
+        <div class="field ui input">
+            <input type="url" ng-model="appURL" placeholder="应用URL" required>
+        </div>
+        <div class="field">
+            <input type="file" ng-file-select="onFileSelect($files)">
+        </div>
+        <div class="field">
+            <div class="ui selection dropdown">
+                <input type="hidden" ng-model="appCategory" required>
+                <div class="default text">应用分类</div>
+                <i class="dropdown icon"></i>
+                <div class="menu">
+                    <div class="item" data-value="0">游戏</div>
+                    <div class="item" data-value="1">效率</div>
+                    <div class="item" data-value="2">资料</div>
+                    <div class="item" data-value="3">地图</div>
+                    <div class="item" data-value="4">社交</div>
+                    <div class="item" data-value="5">摄影</div>
+                    <div class="item" data-value="6">播放器</div>
+                    <div class="item" data-value="7">导航</div>
+                    <div class="item" data-value="8">支付</div>
+                    <div class="item" data-value="9">生活</div>
+                    <div class="item" data-value="10">书籍</div>
+                    <div class="item" data-value="11">新闻</div>
+                </div>
+            </div>
+        </div>
+        <div class="field">
+            <textarea ng-model="appDescription" placeholder="应用描述"/>
+        </div>
+        <div class="ui button" ng-click="steps[0].next()">ok，下一步</div>
+    </div>
+</div>
+
+
+<div ng-show="steps[1].show">
+    <div class="ui segment">
+        <p>请在{{appURL}}的根目录下创建名为2df35dgh743sxyd.txt的文件，内容随意。</p>
+    </div>
+    <div class="ui button" ng-click="steps[1].next()">已上传，下一步</div>
+</div>
+
+
+<div ng-show="steps[2].show">
+    <div class="ui segment">
+        <p>提交成功 <i class="smile icon"></i></p>
+        <p>我们将尽快审核并用邮件通知您</p>
+    </div>
+    <div class="ui button" ng-click="complete()">完成</div>
+</div>

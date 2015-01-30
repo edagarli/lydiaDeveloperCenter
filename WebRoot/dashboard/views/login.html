@@ -1,0 +1,36 @@
+<div class="ui grid">
+  <div class="six wide column"></div>
+	<div class="four wide column">
+		<div class="ui message {{notificationStyle}}" ng-show="!notificationHidden">
+			<i class="close icon" ng-click="closeNotification()"></i>
+			{{notificationMessage}}
+		</div>
+
+		<form class="ui form vertical" id="loginForm" name="loginForm" onsubmit="return false;">
+			<div class="ui inverted {{loaderStatus}} dimmer">
+				<div class="ui loader"></div>
+			</div>
+
+			<h3 class="ui header">
+				LydiaBox开发者中心
+			</h3>
+			<div class="field">
+				<div class="ui left labeled icon input">
+					<input type="email" name="email" ng-model="email" placeholder="邮箱" required>
+					<i class="mail icon"></i>
+				</div>
+			</div>
+			<div class="field">
+				<div class="ui left labeled icon input">
+					<input type="password" name="password" ng-model="password" placeholder="密码" required>
+					<i class="lock icon"></i>
+				</div>
+			</div>
+			<div>
+				<div class="ui button submit blue fluid" ng-click="login()">登录</div>
+			</div>
+		</form>
+		<small>没有帐号？<a href="#register">现在加入</a></small>
+	</div>
+	<div class="six wide column"></div>
+</div>

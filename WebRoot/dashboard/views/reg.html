@@ -1,0 +1,58 @@
+<div class="ui grid">
+    <div class="five wide column"></div>
+    <div class="six wide column" id="regFormContainer">
+        <div class="ui steps">
+            <div class="ui step {{steps[0].status}}">填写资料</div>
+            <div class="ui step {{steps[1].status}}">验证邮箱</div>
+        </div>
+
+        <div class="ui message {{notificationStyle}}" ng-show="!notificationHidden">
+            <i class="close icon" ng-click="closeNotification()"></i>
+            {{notificationMessage}}
+        </div>
+
+        <form class="ui form" ng-show="steps[0].show" name="regForm" id="regForm" onsubmit="return false;">
+            <div class="ui inverted {{loaderStatus}} dimmer">
+                <div class="ui loader"></div>
+            </div>
+
+            <div class="field">
+                <input type="email" name="email" ng-model="newEmail" placeholder="登录邮箱" required/>
+            </div>
+            <div class="field">
+                <input type="password" name="password" ng-model="newPassword" placeholder="登录密码" required/>
+            </div>
+            <div class="field">
+                <input type="text" name="name" ng-model="newName" placeholder="开发者/团队 名称" required/>
+            </div>
+            <div class="field">
+                <input type="url" name="website" ng-model="newWebsite" placeholder="开发者/团队 官方网站" required/>
+            </div>
+            <div class="ui button submit blue" ng-click="next()">下一步</div>
+            <div class="ui corner label">
+                <i class="icon asterisk"></i>
+            </div>
+        </form>
+
+        <div class="ui segment" ng-show="steps[1].show">
+            <form id="codeForm" class="ui form" name="codeForm" onsubmit="return false;">
+                <div class="ui inverted {{loaderStatus}} dimmer">
+                    <div class="ui loader"></div>
+                </div>
+
+                <div class="four fields">
+                    <p>请输入发送至你邮箱{{newEmail}}中的验证码以验证你的邮箱</p>
+                    <div class="field">
+                        <div class="ui input">
+                            <input type="text" name="code" ng-model="code" maxlength="4" class="ui"/>
+                        </div>
+                    </div>
+                </div>
+
+                <a class="ui button submit" ng-click="checkMail()">确认</a>
+            </form>
+        </div>
+    </div>
+    <div class="five wide column"></div>
+</div>
+
