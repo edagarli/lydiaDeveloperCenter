@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="lydiaDeveloperCenter"
+  id="myeclipse.1383297902984"
+  context-root="/lydiaDeveloperCenter"
+  j2ee-spec="5.0"
+  archive="lydiaDeveloperCenter.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

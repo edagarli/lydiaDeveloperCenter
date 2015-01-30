@@ -1,0 +1,21 @@
+<div class="ui button large green" ng-click="btnUploadClick()">添加Web App</div>
+<table class="ui table segment">
+    <thead>
+        <tr>
+            <th>应用名称</th>
+            <th>应用地址</th>
+            <th>状态</th>
+            <th>打开次数</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="app in apps">
+            <td>{{app.name}}</td>
+            <td>{{app.url}}</td>
+            <td class="{{app.class}}">{{app.status}}</td>
+            <td>{{app.openTimes}}</td>
+            <td><a class="ui button red">下架</a></td>
+        </tr>
+    </tbody>
+</table>

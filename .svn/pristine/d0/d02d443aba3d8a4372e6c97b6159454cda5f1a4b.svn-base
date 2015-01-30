@@ -1,0 +1,31 @@
+<div class="ui steps">
+    <div class="ui step {{steps[0].status}}">填写资料</div>
+    <div class="ui step {{steps[1].status}}">验证邮箱</div>
+</div>
+
+<div class="ui segment form" ng-show="steps[0].show">
+    <div class="field">
+        <input type="email" ng-model="newEmail" placeholder="登录邮箱" required/>
+    </div>
+    <div class="field">
+        <input type="password" ng-model="newPassword" placeholder="登录密码" required/>
+    </div>
+    <div class="field">
+        <input type="text" ng-model="newName" placeholder="开发者／团队 名称" required/>
+    </div>
+    <div class="field">
+        <input type="text" ng-model="newWebsite" placeholder="开发者／团队 官方网站" />
+    </div>
+    <div class="ui button" ng-click="next()">下一步</div>
+    <div class="ui corner label">
+        <i class="icon asterisk"></i>
+    </div>
+</div>
+
+<div class="ui segment" ng-show="steps[1].show">
+    <div>
+        <p>请输入发送至你邮箱{{newEmail}}中的验证码以验证你的邮箱</p>
+        <div class="ui input"><input type="number" class="ui one"/></div>
+        <a class="ui button">确认</a>
+    </div>
+</div>
