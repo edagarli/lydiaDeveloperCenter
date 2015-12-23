@@ -16,13 +16,13 @@ import javax.mail.internet.MimeMultipart;
 public class EmailSender
 {
 
-	private String host = "smtp.qq.com"; // ÓÊ¼şÖ÷»ú·şÎñÆ÷
-	private String from = "no-reply@lydiabox.com"; // ·¢¼şÈË
-	private String to = "root@pwhack.me"; // ÊÕ¼şÈË
-	private String subject = "Lydia Web App StoreĞèÒªÑéÖ¤ÄúµÄÓÊ¼ş"; // ÓÊ¼ş±êÌâ
-	private String content = "hello! i am lizhi!"; // ÓÊ¼şÄÚÈİ
-	private String userName = "no-reply@lydiabox.com"; // ÓÃ»§Ãû
-	private String password = "justhackerlizhi"; // ÃÜÂë
+	private String host = "smtp.qq.com"; // é‚®ä»¶ä¸»æœºæœåŠ¡å™¨
+	private String from = "no-reply@lydiabox.com"; // å‘ä»¶äºº
+	private String to = "root@pwhack.me"; // æ”¶ä»¶äºº
+	private String subject = "Lydia Web App Storeéœ€è¦éªŒè¯æ‚¨çš„é‚®ä»¶"; // é‚®ä»¶æ ‡é¢˜
+	private String content = "hello! i am lizhi!"; // é‚®ä»¶å†…å®¹
+	private String userName = "no-reply@lydiabox.com"; // ç”¨æˆ·å
+	private String password = "*******"; // å¯†ç 
 
 	public static void main(String[] args) throws Exception
 	{
@@ -30,10 +30,10 @@ public class EmailSender
 	}
 
 	/**
-	 * ÉèÖÃÄÚÈİ
+	 * è®¾ç½®å†…å®¹
 	 * 
 	 * @param content
-	 *            ÓÊ¼şÄÚÈİ
+	 *            é‚®ä»¶å†…å®¹
 	 */
 	public void setContent(String content)
 	{
@@ -41,10 +41,10 @@ public class EmailSender
 	}
 
 	/**
-	 * ÉèÖÃÊÕ¼şÈË
+	 * è®¾ç½®æ”¶ä»¶äºº
 	 * 
 	 * @param to
-	 *            ÊÕ¼şÈËµØÖ·
+	 *            æ”¶ä»¶äººåœ°å€
 	 */
 	public void setTo(String to)
 	{
@@ -53,11 +53,11 @@ public class EmailSender
 
 	/**
 	 * 
-	 * param n È¡³öËæ»úÊıµÄ¸öÊı
+	 * param n å–å‡ºéšæœºæ•°çš„ä¸ªæ•°
 	 * 
-	 * param begin Ëæ»úÊı²úÉúµÄ¿ªÊ¼Êı
+	 * param begin éšæœºæ•°äº§ç”Ÿçš„å¼€å§‹æ•°
 	 * 
-	 * param end Ëæ»úÊı²úÉúµÄÖÕµã
+	 * param end éšæœºæ•°äº§ç”Ÿçš„ç»ˆç‚¹
 	 **/
 
 	public static String generateDifNums(int n, int begin, int end)
@@ -100,7 +100,7 @@ public class EmailSender
 	}
 
 	/**
-	 * ·¢ËÍemail
+	 * å‘é€email
 	 * 
 	 * @throws MessagingException
 	 * @throws Exception
@@ -109,27 +109,27 @@ public class EmailSender
 	{
 
 		Properties props = new Properties();
-		props.put("mail.smtp.host", host); // Ö¸¶¨SMTP·şÎñÆ÷
-		props.put("mail.smtp.auth", "true"); // Ö¸¶¨ÊÇ·ñĞèÒªSMTPÑéÖ¤
+		props.put("mail.smtp.host", host); // æŒ‡å®šSMTPæœåŠ¡å™¨
+		props.put("mail.smtp.auth", "true"); // æŒ‡å®šæ˜¯å¦éœ€è¦SMTPéªŒè¯
 
 		Session mailSession = Session.getDefaultInstance(props);
 
 		MimeMessage message = new MimeMessage(mailSession);
 		MimeMultipart mp = new MimeMultipart();
 		
-		message.setFrom(new InternetAddress(from)); // ·¢¼şÈË 
+		message.setFrom(new InternetAddress(from)); // å‘ä»¶äºº 
 		
 		to=emailBox;
 				
-		message.addRecipient(Message.RecipientType.TO, new InternetAddress(to)); // ÊÕ¼şÈË
+		message.addRecipient(Message.RecipientType.TO, new InternetAddress(to)); // æ”¶ä»¶äºº
 
-		message.setSubject(subject,"utf-8"); // ÓÊ¼şÖ÷Ìâ
+		message.setSubject(subject,"utf-8"); // é‚®ä»¶ä¸»é¢˜
 
 		content = String.valueOf(generateDifNums(1,1000,9999).toString());
 
-	    // ÉèÖÃÕıÎÄ
+	    // è®¾ç½®æ­£æ–‡
 	    BodyPart body = new MimeBodyPart();
-	    body.setContent("ÑéÖ¤ÂëÎª:"+content+" [Lydia Web App Store]", "text/plain;charset=utf-8"); // £¡£¡£¡×¢ÒâÉèÖÃ±àÂë
+	    body.setContent("éªŒè¯ç ä¸º:"+content+" [Lydia Web App Store]", "text/plain;charset=utf-8"); // ï¼ï¼ï¼æ³¨æ„è®¾ç½®ç¼–ç 
 	    mp.addBodyPart(body);
 	    message.setContent(mp);
 		
